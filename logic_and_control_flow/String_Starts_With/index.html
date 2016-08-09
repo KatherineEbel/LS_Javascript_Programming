@@ -19,7 +19,11 @@
     console.log(startsWith(str, "We put co"));
 
     function startsWith(string, searchString) {
-      for (var i = 0; i < searchString.length; i++) {
+      var length = Math.min(string.length, searchString.length);
+      if (searchString === "") {
+        return true;
+      }
+      for (var i = 0; i < length; i++) {
         if (string[i] !== searchString[i]) {
           return false;
         }
