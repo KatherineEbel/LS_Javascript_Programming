@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rot13 Cipher</title>
+</head>
+<body>
+  <h1>Rot13 Cipher</h1>
+  <p>See console for program output</p>
+  <script type="text/javascript" charset="utf-8">
+    //  Requirements
+    // 1. If the character is a letter, change it to the character 13 positions later in the alphabet.
+      // (a  becomes n). If you reach the end of the alphabet, start back at the beginning. So m
+      // becomes b.
+    // 2. The letter transformation should preserve the case of the letter. A becomes N while a becomes
+      // n.
+    // 3. If the character is not a letter, it is not modified.
+    // Write a Function rot13 that takes a string and returns that string transformed by the rot13
+    // cipher.
+
+    function rot13(string) {
+      var cipherText = "",
+          charCode;
+      for (let char of string) {
+        charCode = char.charCodeAt(0);
+        if ((char >= "a" && char <= "m") || (char >= "A" && char <="M")) {
+          cipherText += String.fromCharCode(charCode + 13);
+        } else if ((char >= "n" && char <= "z") || (char >= "N" && char <="Z")) {
+          cipherText +=  String.fromCharCode(charCode - 13);
+        } else {
+          cipherText += char;
+        }
+      }
+      return cipherText;
+    }
+    console.log(rot13('Teachers open the door, but you must enter by yourself.'));
+    // prints:  Grnpuref bcra gur qbbe, ohg lbh zhfg ragre ol lbhefrys.
+    console.log(rot13(rot13('Teachers open the door, but you must enter by yourself.')));
+    // prints: Teachers open the door, but you must enter by yourself.
+  </script>
+</body>
+</html>
