@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Splitting a String</title>
+</head>
+<body>
+  <h1>Splitting a String</h1>
+  <p>See console for program output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Write a function that takes two arguments:
+    // A string to be split
+    // A delimeter string
+
+    function splitString(string, delimeter) {
+      var result = "";
+      if (delimeter === undefined) {
+        console.log(string);
+        return;
+      }
+      for (let char of string) {
+        if (char === delimeter)  {
+          console.log(result);
+          result = "";
+        } else if (delimeter === "") {
+          console.log(char);
+        } else {
+          result += char;
+        }
+      }
+      if (result) {
+        console.log(result);
+      }
+    }
+
+    splitString("abc,123,hello world", ",");
+    // logs out:
+    // abc
+    // 123
+    // hello world
+
+    splitString("hello");
+    splitString("hello", "");
+    splitString("hello", ";");
+    splitString(";hello;", ";");
+  </script>
+</body>
+</html>
