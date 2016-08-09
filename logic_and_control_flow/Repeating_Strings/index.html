@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>Repeating Strings</h1>
+  <p>Check console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Implement a function that takes a string and a number 'times' as an argument.
+    // The function returns the string repeated 'times' number of times. You can
+    // assume times is an integer. If times is negative number return undefined. If
+    // times is a 0, return an empty string. If times is passed in as a non-number return
+    // undefined.
+
+    console.log(repeat("abc", 1));     // "abc"
+    console.log(repeat("abc", 2));     // "abcabc"
+    console.log(repeat("abc", -1));    // undefined
+    console.log(repeat("abc", 0));     // ""
+    console.log(repeat("abc", "a"));   // undefined
+
+    function repeat(string, times) {
+      var output = "";
+      if (typeof times !== "number" || times < 0) {
+        return undefined;
+      }
+
+      for (var i = 0; i < times; i++) {
+        output += string;
+      }
+
+      return output;
+    }
+  </script>
+</body>
+</html>
