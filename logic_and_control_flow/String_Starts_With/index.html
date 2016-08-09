@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>String Starts With</title>
+</head>
+<body>
+  <h1>String Starts With</h1>
+  <p>See console for program output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Implement a function that determines if a string starts with another string.
+    // If it does the function should return true. False if otherwise.
+
+    var str = "We put comprehension and mastery above all else";
+    console.log(startsWith(str, "We"));      // true
+    console.log(startsWith(str, "We put"));  // true
+    console.log(startsWith(str, ""));        // true
+    console.log(startsWith(str, "put"));     // false
+    console.log(startsWith(str, "We put co"));
+
+    function startsWith(string, searchString) {
+      for (var i = 0; i < searchString.length; i++) {
+        if (string[i] !== searchString[i]) {
+          return false;
+        }
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>
