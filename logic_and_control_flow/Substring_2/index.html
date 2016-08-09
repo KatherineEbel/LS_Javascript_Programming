@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Substring (2)</title>
+</head>
+<body>
+  <h1>Substring (2)</h1>
+  <p>Check console for</p>
+  <script type="text/javascript" charset="utf-8">
+    //Function takes two arguments, and both are indices of the string provided,
+    // with the following rules:
+    //  1. if both start and end are positive integers, start is less than end, and both
+    // are within the boundary of the string. Return the substring from the start index
+    // inclusive to the end index (NOT inclusive).
+
+    // 2. if the value of start is greater than end, the function swaps the value of the two.
+    // 3. if start is equal to end then substring will return an empty string.
+    // 4. if end is not provided, the end variable inside of the function will become undefined.
+    //    In this case return the substring up to the end of the string.
+    // 5. if either start or end is less than 0 or NaN, it is treated as 0.
+    // 6. if either start or end is greater than the length of the string, then it is treated
+    //    to be equal to the length of the string instead.
+
+    function substring(string, start, end) {
+      var substring = "",
+          temp;
+      if (end === undefined) {
+        end = string.length;
+      }
+      if (start < 0 || isNaN(start)) {
+        start = 0;
+      }
+      if (end < 0 || isNaN(end)) {
+        end = 0;
+      }
+      if (start > end) {
+        temp = start;
+        start = end;
+        end = temp;
+      }
+
+      start = Math.min(start, string.length);
+      end = Math.min(end, string.length);
+
+      for (var i = start; i < end; i++) {
+        substring += string[i];
+      }
+      return substring;
+    }
+
+    var string = "hello world";
+
+    console.log(substring(string, 2, 4));     // "ll"
+    console.log(substring(string, 4, 2));     // "ll"
+    console.log(substring(string, 0, -1));     // ""
+    console.log(substring(string, 2));     // "llo world"
+    console.log(substring(string, "a"));     // "hello world"
+    console.log(substring(string, 8, 20));     // "rld"
+
+
+  </script>
+</body>
+</html>
