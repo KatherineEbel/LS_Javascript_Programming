@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Greatest Common Divisor</title>
+</head>
+<body>
+  <h1>Greatest Common Divisor</h1>
+  <p>Check console for program output</p>
+  <script text="text/javascript">
+    // Create a function that gets the Greatest Common Divisor of 2 positive integers.
+
+    console.log(gcd(4, 12));     // 4
+    console.log(gcd(10, 15));    // 5
+    console.log(gcd(2, 9));    // 1
+
+    function gcd(value1, value2) {
+      // divide largest by smallest
+      // divide smallest by remainder
+      if (value1 == 0) {
+        return value2; 
+      }
+      return gcd(value2 % value1, value1);
+    }
+  </script>
+</body>
+</html>

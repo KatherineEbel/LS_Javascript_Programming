@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logic Exercises</title>
+</head>
+<body>
+  <h1>Logic and Flow Control Exercises</h1>
+  <script type="text/javascript">
+
+    // Write a function that takes a positive integer as an argument, and print
+    // all the odd numbers from 1 to the passedin number (inclusive) to the
+    // console. All numbers should be printed on separate lines.
+    (function() {
+      logOdds(19);
+
+      function logOdds(stop_at) {
+        while (stop_at > 0) {
+          var i = 1;
+          for (; i <= stop_at; i += 2) {
+            console.log(i);
+          }
+        }
+
+        if (stop_at <= 0) {
+         console.log("Must logOdds function requires parameter value larger than 0.");
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

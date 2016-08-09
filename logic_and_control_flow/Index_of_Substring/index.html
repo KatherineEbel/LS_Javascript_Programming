@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Index of Substring</title>
+</head>
+<body>
+  <h1>Index of Substring</h1>
+  <p>Check console for program output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Write two functions that both take two strings as arguments. Their expected behaviors are:
+    // 1. the indexOf function returns the index of the first character in the firstString
+          // argument at the first instance that the secondString argument is found.
+    // 2. the lastIndexOf function returns the index of the first character in the firstString
+          // argument at the last instance that the secondString argument is found.
+    // 3. in either function, if there's no instance found of second string, return -1
+
+    indexOf("Some strings", "s");     // 5
+    indexOf("Blue Whale", "Whale");   // 5
+    indexOf("Blue Whale", "Blute");   // -1
+    indexOf("Blue Whale", "leB");     // -1
+
+    lastIndexOf("Some strings", "s");                   // 11
+    lastIndexOf("Blue Whale, Killer Whale", "Whale");   // 19
+    lastIndexOf("Blue Whale, Killer Whale", "all");     // -1
+
+    function indexOf(firstString, secondString) {
+      var limit = firstString.length - secondString.length,
+          matchCount;
+
+      for (var i = 0; i <= limit; i++) {
+        matchCount = 0;
+
+        for (var j = 0; j < secondString.length; j++) {
+          if (firstString[i + j]  === secondString[j]) {
+            matchCount++;
+          } else {
+            break; 
+          }
+        };
+
+        if (matchCount === secondString.length) {
+          console.log(i);
+          return i;
+        }
+      };
+      console.log(-1);
+      return -1;
+    }
+
+    function lastIndexOf(firstString, secondString) {
+      var limit = firstString.length - secondString.length,
+          matchCount;
+      for (var i = limit; i >= 0; i--) {
+      matchCount = 0;
+
+        for (var j = 0; j < secondString.length; j++) {
+        if (firstString[i + j] === secondString[j]) {
+          matchCount++;
+        } else {
+          break;
+        }
+      };
+      if (matchCount === secondString.length) {
+        console.log(i);
+        return i;
+      }
+      };
+      console.log(-1);
+      return -1;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guessing the Password</title>
+</head>
+<body>
+  <h1>Guessing the Password</h1>
+  <p>Check javascript console for program output</p>
+  <script type="text/javascript">
+    // Write a password guessing program to keep track of how many times the user has entered the password wrong.
+    // If it is more than 3 times, print "You have been denied access." and terminate the program. If the  password
+    // is correct, print "You have successfully logged in." and terminate the program.
+
+    // password = "password"
+    // The program pops up a prompt for the user to enter a password.
+    // If the user puts in the wrong password, it keeps asking for up to 3 times
+    // before it logs on the console that the access is denied
+
+    var number_of_attempts = 0,
+        max_attempts = 3,
+        password = "password",
+        attempt = "",
+        success;
+
+    while (number_of_attempts < max_attempts) {
+      attempt = prompt("What is the password?");
+      if (attempt === password) {
+        break;
+      }
+      number_of_attempts++;
+    }
+    
+    success = password === attempt;
+    if (success) {
+      console.log("You have successfully logged in.");
+    } else {
+      console.log("You have been denied access.");
+    }
+  </script>
+</body>
+</html>

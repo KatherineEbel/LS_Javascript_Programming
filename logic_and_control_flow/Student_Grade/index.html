@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Grade</title>
+</head>
+<body>
+  <h1>Student Grade Exercise</h1>
+  <p>Check javascript console for output</p>
+  <script type="text/javascript">
+    // Write a program that determines a student's grade. The program will read three
+    // scores and determine the grade based on the following rules.
+    // 1. if the average score >= 90 => grade: A
+    // 2. if the average score >= 70 and < 90 => grade: B
+    // 3. if the average score >= 50 and < 70 => grade: C
+    // 4. if the average score < 50 => grade: F
+
+    var scores = getScores(),
+        average = getAverage(scores);
+
+    logAverage(average, scores.length);
+
+    function getScores() {
+      var scores = [],
+          i = 1,
+          num_scores = 3;
+      for (; i < num_scores + 1; i++) {
+        var score = prompt("Enter score " + i);
+        scores.push(+(score));
+      }
+      return scores;
+    }
+
+    function getAverage(scores) {
+      var total = 0;
+
+      for (let score in scores) {
+        total += scores[score];
+      }
+      return total = total / scores.length;
+    }
+
+    function gradeForAvg(average) {
+      if (average >= 90) {
+        return "A";
+      } else if (average >= 70 && average < 90) {
+        return "B";
+      } else if (average >= 50 && average < 70) {
+        return "C";
+      } else if (average < 50) {
+        return "F";
+      }
+    }
+
+    function logAverage(average, num_scores) {
+      console.log("Based on the average of your " + num_scores +
+                  " scores, your letter grade is " + gradeForAvg(average) +
+                  ".");
+    }
+  </script>
+</body>
+</html>

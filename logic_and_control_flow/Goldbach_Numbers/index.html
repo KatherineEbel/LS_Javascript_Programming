@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>Goldbach Numbers</h1>
+  <p>Check console for program output</p>
+  <script type="text/javascript">
+    // Write a function called checkGoldbach() which takes as its
+    // only parameter an integer n, and logs out all the combinations of 
+    // two prime numbers whose sum is equal to n, putting the smaller number first.
+    // If n is less than 4, or n is odd, then such two prime numbers can't be found.
+    // In this case your function should log out null. This is known as the Goldbach's Conjecture.
+
+    checkGoldbach(3);
+    // null
+    checkGoldbach(4);
+    // 2 2
+    checkGoldbach(12);
+    // 5 7
+    checkGoldbach(100);
+    // 3 97
+    // 11 89
+    // 17 83
+    // 29 71
+    // 41 59
+    // 47 53
+    function checkGoldbach(n) {
+      if (n < 4 || n % 2 !== 0) {
+        console.log(null);
+        return;
+      }
+      if (n === 4) {
+        console.log(2 + " " + 2);
+      }
+      for (var i = 2; i < n / 2; i++) {
+        if (isPrime(i) && isPrime(n - i)) {
+          var smallest = Math.min(i, n - i),
+              largest = Math.max(i, n - i);
+          console.log(smallest + " " + largest);
+        }
+      }
+    }
+
+    function isPrime(number) {
+      var i = 2;
+      if (number <= 1) {
+        return false;
+      }
+      for (; i < number; i++) {
+        if (number % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>

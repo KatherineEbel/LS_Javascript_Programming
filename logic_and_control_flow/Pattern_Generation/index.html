@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pattern Generation</title>
+</head>
+<body>
+  <h1>Pattern Generation</h1>
+  <p>Check console for program output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Write a function that can take a single argument n, as number of rows, and log out a square of
+    // numbers of asterisks. For example, if n = 7, log out the following pattern:
+    generatePattern(20);
+    // console output
+    // 1******
+    // 12*****
+    // 123****
+    // 1234***
+    // 12345**
+    // 123456*
+    // 1234567
+
+    function generatePattern(n) {
+      var current_line,
+          star_count = 0;
+
+      for (var i = 1; i <= n; i++) {
+        current_line = "";
+        for (var j = 1; j <= i ; j++) {
+          current_line += j.toString();
+        };
+        for (var k = i + 1; k <= n; k++) {
+          star_count = String(k).length
+          for (var l = 0; l < star_count; l++) {
+            current_line += "*";
+          };
+        };
+        console.log(current_line);
+      };
+    }
+  </script>
+</body>
+</html>

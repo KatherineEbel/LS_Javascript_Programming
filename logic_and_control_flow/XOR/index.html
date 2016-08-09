@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XOR</title>
+</head>
+<body>
+  <h1>XOR</h1>
+  <p>Check javascript console for program output</p>
+  <script type="text/javascript">
+    // Write a function named xor that takes two arguments, and returns
+    // true if exactly one of it's arguments is true, false if otherwise.
+    // Your function should be able to not only deal with the boolean values
+    // of true and false, but all Javascript values based on their "truthiness".
+    
+    console.log(isXor(false, true));   // true
+    isXor(true, false);   // true
+    isXor(false, false);  // false
+    isXor(true, true);    // false
+
+    isXor(false, 3);        // true
+    isXor("a", undefined);  // true
+    isXor(null, "");        // false
+    isXor("2", 23);         //false
+
+    function isXor(value1, value2) {
+      return ((value1 && !value2) || (!value1 && value2))
+    }
+  </script>
+</body>
+</html>

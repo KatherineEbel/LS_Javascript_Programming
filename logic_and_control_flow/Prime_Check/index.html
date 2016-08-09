@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prime Check</title>
+</head>
+<body>
+  <h1>Prime Check</h1>
+  <p>Check javascript console for program output</p>
+  <script type="text/javascript">
+    // Write a function that takes a number argument, and returns whether the number is a prime number.
+    // You can assume that the input is always a positive integer.
+    
+    isPrime(1); // false
+    isPrime(2); // true
+    isPrime(3); // true
+    isPrime(43); // true
+    isPrime(55); // false
+    isPrime(0); // false
+
+    function isPrime(number) {
+      var i = 2;
+      if (number <= 1) {
+        console.log(false);
+        return false;
+      }
+      for (; i < number; i++) {
+        if (number % i === 0) {
+          console.log(false);
+          return false;
+        }
+      }
+      console.log(true);
+      return true;
+    }
+  </script>
+</body>
+</html>

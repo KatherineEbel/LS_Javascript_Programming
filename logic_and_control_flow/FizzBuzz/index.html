@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FizzBuzz</title>
+</head>
+<body>
+  <h1>FizzBuzz</h1>
+  <p>See javascript console for program output</p>
+  <script type="text/javascript">
+    // Write a function which iterates the integers from 1 to 100. For multiples of three log
+    // out "Fizz" to the console, and for the multiples of five log "Buzz". For numbers which
+    // are multiples of both three and five print "FizzBuzz".
+    fizzbuzz();
+
+    function fizz(num) {
+      if (num % 3 === 0) {
+        return "Fizz";
+      } else {
+        return "";
+      }
+    }
+
+    function buzz(num) {
+      if (num % 5 === 0) {
+        return "Buzz";
+      } else {
+        return "";
+      }
+    }
+
+    function fizzbuzz() {
+      var i = 1;
+      for (; i <= 100; i++) {
+        console.log(fizz(i) + buzz(i) || i);
+      }
+    }
+  </script>
+</body>
+</html>
