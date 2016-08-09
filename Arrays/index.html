@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercises: Arrays</title>
+</head>
+<body>
+  <h1>Array Exercises</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+
+    // 1. Write a function callled lastInArray that receives an array as its argument.
+    // Within this function use the length of the array to return the last value  
+    // in the array.
+    //var arr = ["first", "second", "third", "fourth"];
+    function lastInArray(array) {
+      return array[array.length - 1];
+    }
+    //console.log(lastInArray(arr));    // "fourth"
+
+    // 2. Create an array with first names in it, like ["Steve", "Martha", "Pat"]. Create a
+          // function called rollCall that will take an array of names and use a for loop to log each name in
+          // order.
+    var names = ["Steve", "Martha", "Pat"];
+    function rollCall(arr) {
+      for (let name of arr) {
+        console.log(name);
+      }
+    }
+    console.log(rollCall(names));
+    // 3. Make an array of the numbers 1 through 5 in order. Then create a function that will return a new
+          // array with the values in reverse order.
+    var ordered = [1, 2, 3, 4, 5];
+    function reverseArray(array) {
+      var length = array.length - 1,
+          reversed = [];
+      for (var i = length; i >= 0; i--) {
+        reversed.push(array[i]);
+      }
+      return reversed;
+    }
+    console.log(reverseArray(ordered));
+    // 4. Create a function that will find the first instance of a value form within an array
+          // and returns the position of the value. The function will take two arguments, the first
+          // being the value to search for and the second the array to search through. If the
+          // value isn't in the array, -1 should be returnd. To make sure you don't return the last
+          // index of a value, when the first one is found you can exit the for loop using the break
+          // keyword.
+    function findFirst(value, array) {
+      var index = -1;
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+          index = i;
+          break;
+        }
+      }
+      return index;
+    }
+    console.log(findFirst("Mike", ["Sam", "Michael", "Mike"])); // 2
+    // 5. Write a function that will take an array and return a string of all of the values in the same
+          // order as they are in the array. (Use a for loop to add each value to the end of a variable that
+          // starts off as an empty string, or "".
+    function arrToString(array) {
+      var result = "";
+      for (var i = 0; i < array.length; i++) {
+        result += array[i];
+      }
+      return result;
+    }
+
+    console.log(arrToString(["cat", "bat", "rat"]));
+  </script>
+</body>
+</html>
