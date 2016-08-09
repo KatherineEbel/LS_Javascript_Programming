@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>String to Lowercase</title>
+</head>
+<body>
+  <h1>String to Lowercase</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Write a function that turns a string into a lower-case string manually.
+
+    function toLowerCase(string) {
+      var newString = "",
+          charCode;
+      for (let char of string) {
+        charCode = char.charCodeAt(0);
+        if (charCode >= 65 && charCode <= 90) {
+          charCode += 32;
+        }
+        newString += String.fromCharCode(charCode);
+      }
+      return newString;
+    }
+
+
+    console.log(toLowerCase("ALPHABET"));   // "alphabet"
+    console.log(toLowerCase("123"));        // "123"
+    console.log(toLowerCase("abcDEF"));     // "abcdef"
+  </script>
+</body>
+</html>
