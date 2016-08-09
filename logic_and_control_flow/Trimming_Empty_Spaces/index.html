@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trimming Empty Spaces</title>
+</head>
+<body>
+  <h1>Trimming Empty Spaces</h1>
+  <p>See console for program output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Write a function that takes a string as an argument, and returns the string
+    // stripped of spaces from both ends.
+
+    trim("  abc  ");    // "abc"
+    trim("abc   ");     // "abc"
+    trim(" ab c");      // "ab c"
+    trim(" a b  c");    // "a b  c"
+    trim("");           // ""
+
+    function trim(string) {
+      var trimmed = trimLeft(string);
+      trimmed = trimRight(trimmed);
+      console.log(trimmed + " Length: " + trimmed.length)
+      return trimmed;
+    }
+
+    function trimLeft(string) {
+      var result = "",
+          copy_mode = false;
+      for (var i = 0; i < string.length; i++) {
+        if (string[i] !== " ") {
+          copy_mode = true;
+        }
+        if (copy_mode) {
+          result += string[i];
+        }
+      }
+      return result;
+    }
+
+    function trimRight(string) {
+      var result = "",
+          copy_mode = false;
+
+      for (var i = string.length - 1; i >= 0; i--) {
+        if (string[i] !== " ") {
+          copy_mode = true;
+        }
+        if (copy_mode) {
+          result = string[i] + result;
+        }
+      }
+      return result;
+    }
+  </script>
+</body>
+</html>
