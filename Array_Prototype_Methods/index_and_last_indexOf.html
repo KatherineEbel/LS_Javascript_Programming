@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>indexOf and lastIndexOf</title>
+</head>
+<body>
+  <h1>Array Operations: indexOf and lastIndexOf</h1>
+  <p>See console for program output.</p>
+  <script type="text/javascript" charset="utf-8">
+    // 1. Write a function, indexOf, that accepts two arguments: an Array and a value.
+          // The function should return the first index in the Array where the value
+          // is found, or -1 if the value is not found.
+    console.log(indexOf([1, 2, 3, 3,], 3));    // 2
+    console.log(indexOf([1, 2, 3], 4));        // -1
+    function indexOf(array, value) {
+      var index = -1;
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+          index = i;
+          break;
+        }
+      }
+      return index;
+    }
+
+    // 2. Write a function, lastIndexOf, that accepts two arguments: an Array and a value.
+          // The function should return the last index in the Array where the value is found,
+          // or -1 if the value is not found.
+    console.log(lastIndexOf([1, 2, 3, 3,], 3));    // 2
+    console.log(lastIndexOf([1, 2, 3], 4));        // -1
+
+    function lastIndexOf(array, value) {
+      var index = -1;
+      for (var i = array.length - 1; i >= 0; i--) {
+        if (array[i] === value) {
+          index = i;
+          break;
+        }
+      }
+      return index;
+    }
+  </script>
+</body>
+</html>
