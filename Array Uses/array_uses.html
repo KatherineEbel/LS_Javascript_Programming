@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Array Uses</title>
+</head>
+<body>
+  <h1>Exercises: Basic Array Uses</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    //1. funtion that returns first element of array.
+    function firstElementOf(arr) {
+      return arr[0];
+    }
+
+    function lastElementOf(arr) {
+      return arr[arr.length - 1];
+    }
+
+    function nthElementOf(arr, index) {
+      return arr[index];
+    }
+
+    function firstNOf(arr, length) {
+      return arr.slice(0, length);
+    }
+
+    function lastNof(arr, length) {
+      var index = arr.length - length;
+      if (index < 0) {
+        index = 0;
+      }
+      return arr.slice(index);
+    }
+
+    function endsOf(beginningArr, endingArr) {
+      var newArray = [];
+      newArray.push(beginningArr.shift(), endingArr.pop())
+      return newArray;
+    }
+
+    //console.log(firstElementOf(["U", "S", "A"])); // Returns "U"
+    //console.log(lastElementOf(["U", "S", "A"])); // Returns "A"
+
+    var digits = [4, 8, 15, 16, 23, 42];
+    // 4.Can we add data into an array at a newgative index?
+          // answer: yes,because array is an object.
+    //digits[-1] = -42;
+    //console.log(nthElementOf(digits, -1));
+    //console.log(digits[-1]);
+    //console.log(digits["-1"]);
+    //console.log(nthElementOf(digits, 3)); // Returns 16
+    //console.log(nthElementOf(digits, 8)); // What would this return? (undefined)
+    //console.log(nthElementOf(digits, -1)); // What would this return? (undefined)
+    //console.log(firstNOf(digits, 3));       // Returns [4, 8, 15]
+    console.log(lastNof(digits, 3));        // Returns [16, 23, 42]
+    console.log(lastNof(digits, 8));        // Returns [4, 8, 15, 16, 23, 42]
+    console.log(endsOf([4, 8, 15], [16, 23, 42])); // Returns [4, 42])
+  </script>
+</body>
+</html>
