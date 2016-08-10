@@ -13,12 +13,23 @@
     // the argument.
 
     function missing(fromArray) {
+      var missingValues = [],
+          nextVal;
+      for (var i = 0; i < fromArray.length; i++) {
+        nextVal = fromArray[i] + 1;
+        if (fromArray[i + 1] !== nextVal) {
+          for (var j = nextVal; j < fromArray[i + 1]; j++) {
+            missingValues.push(j);
+          }
+        }
+      }
+      return missingValues;
     }
     // Examples:
-    missing([-3, -2, 1, 5]);                  // [-1, 0, 2, 3, 4]
-    missing([1, 2, 3, 4]);                    // []
-    missing([1, 5]);                          // [2, 3, 4]
-    missing([6]);                             // []
+    console.log(missing([-3, -2, 1, 5]));                  // [-1, 0, 2, 3, 4]
+    console.log(missing([1, 2, 3, 4]));                    // []
+    console.log(missing([1, 5]));                          // [2, 3, 4]
+    console.log(missing([6]));                             // []
   </script>
 </body>
 </html>
