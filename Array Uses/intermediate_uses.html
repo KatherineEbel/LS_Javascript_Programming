@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Intermediate Array Uses</title>
+</head>
+<body>
+  <h1>Exercises: Intermediate Array Uses</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    function oddElementsOf(arr) {
+      var oddElements = [];
+      for (var i = 1; i < arr.length; i+= 2) {
+        oddElements.push(arr[i]);
+      }
+      return oddElements;
+    }
+
+    function combinedArray(even, odd) {
+      // assume both arrays are equal.
+      var combined = [];
+      for (var i = 0; i < even.length; i++) {
+        combined.push(even[i], odd[i]);
+      }
+      return combined;
+    }
+
+    function mirroredArray(array) {
+      return array.concat(array.slice().reverse());
+    }
+
+    function joinArray(arr, joiner) {
+      joiner = joiner || "";
+      return arr.join(joiner);
+    }
+
+    function sortDescending(arr) {
+      return arr.sort(function(a, b) {
+        return b - a;
+      });
+    }
+
+    function matrixSums(arr) {
+      var sums = [];
+      for(var i = 0; i < arr.length; i++) {
+        sums.push(arr[i].reduce(function(a, b) { return a + b; }, 0));
+      }
+      return sums;
+    }
+
+    function uniqueElements(arr) {
+      var uniques = [];
+      for (var i = 0; i < arr.length; i++) {
+        if (!uniques.includes(arr[i])) {
+          uniques.push(arr[i]);
+        }
+      }
+      return uniques;
+    }
+
+    // ***OUTPUT***
+    var digits = [4, 8, 15, 16, 23, 42];
+
+    console.log(oddElementsOf(digits)); // Returns [8, 16, 42]
+
+    // combined array
+    var digits = [4, 8, 15, 16, 23, 42];
+    var letters = ["A", "L", "V", "A", "R", "H"];
+
+    console.log(combinedArray(digits, letters)); // Returns [4, "A", 8, "L", 15, "V", 16, "A", 23, "R", 42, "H"]
+    // array + reversed array
+    console.log(mirroredArray(digits));
+
+    // joinArray output
+    console.log(joinArray(["a", "b", "c"], "+")); // Returns "a+b+c"
+    console.log(joinArray([1, 4, 1, 5, 9, 2, 7])); // Returns "1415927"
+
+    // sort Descending
+    console.log(sortDescending([23, 4, 16, 42, 8, 15])); // Returns [42, 23, 16, 15, 8, 4]
+
+    // convert array of arrays to new array containing the sum of each array.
+    console.log(matrixSums([[2, 8, 5], [12, 48, 0], [12]])); // Returns [15, 60, 12]
+
+    // unique elements
+    console.log(uniqueElements([1, 2, 4, 3, 4, 1, 5, 4])); // Returns [1, 2, 4, 3, 5]
+  </script>
+</body>
+</html>
