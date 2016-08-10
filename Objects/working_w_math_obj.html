@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>Exercises: Working with the Math Object</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    function radiansToDegrees(radians) {
+      return radians / (Math.PI / 180);
+    }
+
+    //  Create a function that takes two arguments, a minimum and a maximum value, and returns a random integer from min through max using Math.random.
+    function random(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    // random output
+    console.log("Random min/max Output:");
+    console.log(random(10, 50));
+
+    // radians to degrees output
+    console.log("Radians to Degrees Output:");
+    console.log(radiansToDegrees(3.1416));
+
+    // log abs value of -180
+    var negNumber = -180;
+    console.log(Math.abs(negNumber));
+    // log sqrt of 16777216
+    console.log(Math.sqrt(16777216));
+    // log the result of 16 to the 6th power.
+      console.log(Math.pow(16, 6));
+    // round numbers to 50 using Math object
+      console.log(Math.floor(50.72));
+      console.log(Math.ceil(49.2));
+      console.log(Math.round(49.86));
+  </script>
+</body>
+</html>
