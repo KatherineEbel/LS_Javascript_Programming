@@ -1,0 +1,42 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Exercise: Formatting Bands</h1>
+    <p>See console for outpu</p>
+    <script type="text/javascript" charset="utf-8">
+      // Write a function that can process the band array into the following format:
+          // the band countries should have country as "Canada"
+          // the band name should have all words capitalized.
+          // remove the dots in band names
+
+      var bands = [
+        { name: 'sunset rubdown', country: 'UK', active: false },
+        { name: 'women', country: 'Germany', active: false },
+        { name: 'a silver mt. zion', country: 'Spain', active: true },
+      ];
+
+      var processBandValues = function(band) {
+        console.log(band);
+        return band;
+      };
+
+      function processBands(data) {
+        return data.map(function(band) {
+        });
+      }
+
+      console.log(processBands(bands));
+
+      // should return:
+
+      [ { name: 'Sunset Rubdown', country: 'Canada', active: false },
+        { name: 'Women', country: 'Canada', active: false },
+        { name: 'A Silver Mt Zion', country: 'Canada', active: true },
+      ]
+    </script>
+  </body>
+  </html>
