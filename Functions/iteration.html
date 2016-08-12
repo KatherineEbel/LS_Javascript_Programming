@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My For Each</title>
+</head>
+<body>
+  <h1>Exercise: Iteration</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Write a function that's similar to the built-in Array.prototype.forEach. It takes an array and
+    // a function as arguments; with the function used to mutate a variable in the outer scope.
+
+    function myForEach(array, func) {
+      for (var i = 0; i < array.length; i++) {
+        func(array[i]);
+      }
+    }
+
+    var min = Infinity;
+    var getMin = function(value) {
+      min = value <= min? value : min;
+    };
+
+    console.log(myForEach([4, 5, 12, 23, 3], getMin));
+    console.log(min);
+  </script>
+</body>
+</html>

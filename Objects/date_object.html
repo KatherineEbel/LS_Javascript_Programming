@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>Working with Date Object</h1>
+  <p>Check console for program output</p>
+  <script type="text/javascript" charset="utf-8">
+    function dateSuffix(date) {
+      var remainder = date % 10;
+      if (date < 10 || date > 13) {
+        switch (remainder) {
+          case 1: return "st";
+          case 2: return "nd";
+          case 3: return "rd";
+          default: return "th";
+        }
+      } else {
+        return "th";
+      }
+    }
+
+    var today = new Date();
+    console.log(formattedDate(today));
+
+    function formattedMonth(date) {
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      return months[date.getMonth()];
+    }
+
+    function formattedDay(date) {
+      var daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      return daysOfWeek[date.getDay()];
+    }
+
+    function formattedDate(date) {
+      var day = formattedDay(date),
+          month = formattedMonth(date),
+      date_suffix = date.getDate() + dateSuffix(date.getDate());
+      return "Today's date is " + day + ", " + month + " " + date_suffix;
+    }
+
+    function formatTime(date) {
+      var hours = date.getHours(),
+          minutes = date.getMinutes();
+      if (hours < 10) {
+        hours = "0" + hours;
+      }
+      if (minutes < 10) {
+        minutes = "0" + minutes;
+      }
+      return  hours + ":" + minutes;
+    }
+    console.log("Hours: " + today.getHours() + "Minutes: " + today.getMinutes());
+    console.log(formatTime(today));
+    console.log(today.getTime());
+    var tomorrow = new Date(today);
+    var nextWeek = new Date(today);
+    console.log(today.toDateString() === nextWeek.toDateString());
+    nextWeek.setDate(today.getDate() + 7);
+    console.log(today.toDateString() === nextWeek.toDateString());
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    console.log(formattedDate(tomorrow));
+  </script>
+</body>
+</html>
