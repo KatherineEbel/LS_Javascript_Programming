@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>Reducing / Folding</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Write a function that's similar to Array.prototype.reduce. It takes an array and a function. Optionally it also takes
+    // an initial value as an argument. If this is not provided the initial value is the first element of the array. It returns the
+    // return value of the last call to function passed after iterating through all the array elements.
+
+    function myReduce(array, func, initial) {
+      var value,
+          index;
+
+      if (initial) {
+        value = initial;
+        index = 0;
+      } else {
+        value = array[0];
+        index = 1;
+      }
+
+      array.slice(index).forEach(function(element) {
+        value = func(value, element);
+      });
+      return value;
+    }
+
+    var smallest = function(result, value) {
+      return result <= value ? result : value;
+    };
+
+    // Implement a function that takes a list of words as an argument and returns the word with the most number of characters.
+
+    function longestWord(words) {
+      return words.reduce(longest);
+    }
+
+    var longest = function(result, currentWord) {
+      return currentWord.length >= result.length ? currentWord: result;
+    };
+    console.log("Longest Word output: ");
+    console.log(longestWord(['abc', 'launch', 'targets', '']));   // returns "targets"
+
+    console.log(myReduce([5, 12, 15, 1, 6], smallest));   // returns 1
+  </script>
+</body>
+</html>
