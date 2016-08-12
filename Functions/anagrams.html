@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>Exercise: Anagrams</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Write a Function that, when called with a word and a list of possible anagrams, selects the correct sublist that
+    // contains the anagrams of the word.
+        // i.e. given the word "listen" and a list oc candidates like "enlists", "google", "inlets", and "banana", the
+        // program should return a list containing "inlets"
+
+    function anagram(word, list) {
+      var word_total = charCodeTotal(word);
+      return list.filter(function(currentWord) {
+        return charCodeTotal(currentWord) === word_total;
+      });
+    }
+
+    function charCodeTotal(word) {
+      return word.toLowerCase().split('').map(function(char) {
+        return char.charCodeAt(0);
+      }).reduce(function(sum, number) {
+        return sum + number; 
+      });
+    }
+
+    console.log(anagram('listen', ['enlists', 'google', 'inlets', 'banana']));  // [ "inlets" ]
+    console.log(anagram('listen', ['enlist', 'google', 'inlets', 'banana']));   // [ "enlist", "inlets" ]
+  </script>
+</body>
+</html>
