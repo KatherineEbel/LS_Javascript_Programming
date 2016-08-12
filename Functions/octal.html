@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Octal</title>
+</head>
+<body>
+  <h1>Exercise: Octal</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Write a Function, octalToDecimal, that implements octal to decimal conversion. When invoked with a String that
+    // contains a representation of an octal number, the Function should return a decimal version of that value as a Number.
+    // Implement the conversion yourself. Do not use something else to perform the conversion for you.
+
+    function octalToDecimal(number) {
+      if (number.includes("8") || number.includes("9")) {
+        return 0;
+      }
+      return number.split("").reverse().map(function(value, index) {
+        var base = 8;
+        return +value * Math.pow(base, index);
+      }).reduce(function(prev, next) {
+         return prev + next;
+      });
+    }
+
+    // Examples
+    console.log(octalToDecimal('1'));           // 1
+    console.log(octalToDecimal('10'));          // 8
+    console.log(octalToDecimal('17'));          // 9
+    console.log(octalToDecimal('130'));         // 88
+    console.log(octalToDecimal('2047'));        // 1063
+    console.log(octalToDecimal('8'));           // 0
+    console.log(octalToDecimal('9'));           // 0
+    console.log(octalToDecimal('6789'));        // 0
+    console.log(octalToDecimal('011'));         // 9
+  </script>
+</body>
+</html>
