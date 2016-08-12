@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>Exercise: Total Square Area</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Write a function, totalArea, that takes an Array of rectangles as an argument. The function should
+    // return the total area covered by all of the rectangles.
+
+    function totalArea(rectangles) {
+      // area = w * h
+      var areas = rectangles.map(function(rectangle) {
+        return rectangle[0] * rectangle[1];
+      });
+      return areas.reduce(function(prev, next) {
+        return prev + next;
+      });
+    }
+
+    function totalSquareArea(rectangles) {
+      return rectangles.filter(function(rectangle) {
+        return rectangle[0] === rectangle[1];
+      }).map(function(rectangle) {
+        return rectangle[0] * rectangle[1];
+      }).reduce(function(prev, next) {
+        return prev + next;
+      });
+    }
+
+    var rectangles = [[3, 4], [6, 6], [1, 8], [9, 9], [2, 2]];
+    console.log("Total Area: " + totalArea(rectangles));  // logs Total Area: 141
+    console.log("Total Square Area: " + totalSquareArea(rectangles));  // logs Total Area: 121
+  </script>
+</body>
+</html>
