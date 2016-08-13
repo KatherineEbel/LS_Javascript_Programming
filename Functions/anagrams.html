@@ -16,7 +16,7 @@
     function anagram(word, list) {
       var word_total = charCodeTotal(word);
       return list.filter(function(currentWord) {
-        return charCodeTotal(currentWord) === word_total;
+        return charCodeTotal(currentWord) === word_total && charsSame(currentWord, word);
       });
     }
 
@@ -28,6 +28,12 @@
       });
     }
 
+    function charsSame(word1, word2) {
+      var sorted = word2.split('').sort();
+      return word1.split('').sort().every(function(char, index) {
+        sorted[index] === char;
+      });
+    }
     console.log(anagram('listen', ['enlists', 'google', 'inlets', 'banana']));  // [ "inlets" ]
     console.log(anagram('listen', ['enlist', 'google', 'inlets', 'banana']));   // [ "enlist", "inlets" ]
   </script>
