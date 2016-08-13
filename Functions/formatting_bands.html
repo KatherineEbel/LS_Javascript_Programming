@@ -2,7 +2,7 @@
   <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Formatting Bands</title>
   </head>
   <body>
     <h1>Exercise: Formatting Bands</h1>
@@ -20,17 +20,28 @@
       ];
 
       var processBandValues = function(band) {
-        console.log(band);
-        return band;
+        return {
+          name: formatName(band.name),
+          country: "Canada",
+          active: band.active
+        }
+      };
+
+      var formatName = function(name) {
+        return name.replace(/\./, "").split(' ').map(capitalized).join(' ');
+      };
+
+      var capitalized = function(word) {
+        return word.split('').map(function(char, index) {
+          return index === 0 ? char.toUpperCase() : char;
+        }).join('');
       };
 
       function processBands(data) {
-        return data.map(function(band) {
-        });
+        return data.map(processBandValues);
       }
 
       console.log(processBands(bands));
-
       // should return:
 
       [ { name: 'Sunset Rubdown', country: 'Canada', active: false },
