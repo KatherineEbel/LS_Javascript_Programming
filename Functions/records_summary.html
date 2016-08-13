@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Class Record Summary</title>
+</head>
+<body>
+  <h1>Class Record Summary</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    var studentScores = {
+      student1: {
+        id: 123456789,
+        scores: {
+          exams: [90, 95, 100, 80],
+          exercises: [20, 15, 10, 19, 15],
+        },
+      },
+      student2: {
+        id: 123456799,
+        scores: {
+          exams: [50, 70, 90, 100],
+          exercises: [0, 15, 20, 15, 15],
+        },
+      },
+      student3: {
+        id: 123457789,
+        scores: {
+          exams: [88, 87, 88, 89, 88],
+          exercises: [10, 20, 10, 19, 18],
+        },
+      },
+      student4: {
+        id: 112233445,
+        scores: {
+          exams: [100, 100, 100, 100, 100],
+          exercises: [10, 15, 10, 10, 15],
+        },
+      },
+      student5: {
+        id: 112233446,
+        scores: {
+          exams: [50, 80, 60, 90, 90],
+          exercises: [10, 0, 10, 10, 0],
+        },
+      },
+    };
+
+    function generateClassRecordSummary(scores) {
+      var scoreData = Object.keys(scores).map(function(student) {
+        return scores[student].scores;
+      });
+
+      var examData = scoreData.map(function(score) {
+        return score.exams;
+      });
+      return {
+        studentGrades: scoreData.map(function(scoreObj) {
+          return getStudentScore(scoreObj);
+        }),
+        exams: getExamSummary(examData)
+      };
+    }
+
+    function getStudentScore(scoreObj) {
+      var exam_weight = .65,
+          exercise_weight = .35,
+          examAverage = scoreObj.exams.reduce(function(sum, exam) {
+            return sum + exam;
+          }) / scoreObj.exams.length,
+          exerciseScore = scoreObj.exercises.reduce(function(sum, exercise) {
+            return sum + exercise;
+          }),
+          finalScore = Math.round((examAverage * exam_weight) + (exerciseScore * exercise_weight));
+          return finalScore + " (" + letterGrade(finalScore) + ")";
+    }
+
+    function letterGrade(score) {
+      if (score >= 93) {
+        return "A";
+      } else if (score >= 85 && score < 93) {
+        return "B";
+      } else if (score >= 77 && score < 85) {
+        return "C";
+      } else if (score >= 69 && score < 77) {
+        return "D";
+      } else if (score >= 60 && score < 69) {
+        return "E";
+      } else {
+        return "F";
+      }
+    }
+
+    function getExamSummary(examData) {
+      return examData[0].map(function(student1, testIndex) {
+        return examData.map(function(student) {
+          return student[testIndex];
+        });
+      }).map(function(test) {
+        return {
+          average: +(test.reduce(function(sum, score) {
+            return sum + score;
+          }) / test.length).toFixed(1),
+          minimum: Math.min.apply(null, test),
+          maximum: Math.max.apply(null, test)
+        };
+      });
+    }
+    console.log(generateClassRecordSummary(studentScores));
+  </script>
+</body>
+</html>
