@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>Email Validation</h1>
+  <p>See console for output</p>
+  <p>Note: Not true email validation. Only for exercise</p>
+  <script type="text/javascript" charset="utf-8">
+    function isValidEmail(email) {
+      console.log(/^[a-z\d]+@[a-z]+.[a-z]+(.[a-z]+)?$/i.test(email));
+      return /^[a-z\d]+@[a-z]+.[a-z]+(.[a-z]+)?$/i.test(email);
+    }
+
+    isValidEmail('Foo@baz.com.ph');          // returns true
+    isValidEmail('foo@baz.com');             // returns true
+    isValidEmail('foo@baz.ph');              // returns true
+    isValidEmail('HELLO123@baz');            // returns true
+    isValidEmail('foo.bar@baz.to');          // returns false
+    isValidEmail('foo@baz.');                // returns false
+    isValidEmail('foo_bat@baz');             // returns false
+    isValidEmail('foo@bar.a12');             // returns false
+    isValidEmail('foo_bar@baz.com');         // returns false
+  </script>
+</body>
+</html>
