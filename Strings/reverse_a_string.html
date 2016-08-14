@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reverse a String</title>
+</head>
+<body>
+  <h1>Reverse a String</h1>
+  <p>See console for output</p>
+  <script type="text/javascript" charset="utf-8">
+    // Implement a function that takes a string as an argument and returns it in reverse
+    function reverse(string) {
+      return string.split('').reverse().join('');
+    }
+
+    /* Alternate Solution
+    function reverse(string) {
+      var newString = '';
+      for (var i = string.length - 1; i >= 0; i--) {
+        newString += string[i];
+      }
+
+      return newString;
+    }
+
+    console.log(reverse('hello'));               // returns "olleh"
+    console.log(reverse('The quick brown fox')); // returns "xof nworb kciuq ehT"
+  </script>
+</body>
+</html>
